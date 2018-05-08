@@ -1,9 +1,9 @@
 # DMO Ontology
-An [OWL](https://en.wikipedia.org/wiki/Web_Ontology_Language) ontology version of the Decision Modeling Ontology (DMO) by [Konyshova & Deneckère (2012)](http://doi.org/10.3233/978-1-61499-105-2-1553).
+An [OWL](https://en.wikipedia.org/wiki/Web_Ontology_Language) ontology version of the Decision-Making Ontology (DMO) by [Konyshova & Deneckère (2012)](http://doi.org/10.3233/978-1-61499-105-2-1553).
 
 The ontology as originally published was a stand-alone ontology - it referenced or use no other models - nor was a machein-redable version of the ontology given. This version of the ontology is both integrated into the [W3C](https://www.w3.org/)'s set of OWL ontologies and is presented in human- and machine-readable forms.
 
-As per the original ontology, this ontology, this ontology deals with the abstract concept of a Decisoon Modeling (DM) *situation* that is described with a set of DM *elements* and describes a particular DM situation by creating a DM *object* with instances of those elements.
+As per the original ontology, this ontology, this ontology deals with the abstract concept of a Decison Making (DM) *situation* that is described with a set of DM *elements* and describes a particular DM situation by creating a DM *object* with instances of those elements.
 
 A DM situation must contain a *DM problem* and a *set of alternatives*. A problem must be characterised by a problem type which can be choice, ranking, classification, or description. 
 
