@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Decision Modeling Ontology</title>
+        <link href="/static/LODE/owl.css" rel="stylesheet" type="text/css">
+        <link href="/static/LODE/Primer.css" rel="stylesheet" type="text/css">
+        <link href="/static/LODE/rec.css" rel="stylesheet" type="text/css">
+        <link href="/static/LODE/extra.css" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="/static/LODE/favicon.ico">
+        <script src="/static/LODE/jquery.js"></script>
+        <script src="/static/LODE/jquery.scrollTo.js"></script>
+        <script src="/static/LODE/marked.min.js"></script>
+        <script>
+                $(document).ready(
+                    function () {
+                    	jQuery(".markdown").each(function(el){
+							jQuery(this).after(marked(jQuery(this).text())).remove()});
+                        var list = $('a[name="https://promsns.org/def/dmo.ttl"]');
+                        if (list.size() != 0) {
+                        	var element = list.first();
+                        	$.scrollTo(element);
+                        }
+                    });
+        </script>
+    </head>
+    <body>
+        <div class="head">
+            <h1>Decision Modeling Ontology</h1>
+            <dl>
+                <dt>
+                    IRI:
+                </dt>
+                <dd>
+                    http://promsns.org/def/dmo
+                </dd>
+                <dt>
+                    Version IRI:
+                </dt>
+                <dd>
+                    http://promsns.org/def/dmo
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    Current version:
+                </dt>
+                <dd>
+                    1.1
+                </dd>
+                <dt>
+                    Previous version:
+                </dt>
+                <dd>
+                    1.0
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    Authors:
+                </dt>
+                <dd>
+                    Nicholas Car
+                </dd>
+                <dd>
+                    <a href="http://orcid.org/0000-0002-8742-7730">http://orcid.org/0000-0002-8742-7730</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    Other visualisation:
+                </dt>
+                <dd>
+                    <a href="https://promsns.org/def/dmo.ttl">Ontology source</a>
+                </dd>
+            </dl>
+        </div>
+        <hr>
+        <h2>Abstract</h2>
+        <span class="markdown">DRAFT An [OWL](https://en.wikipedia.org/wiki/Web_Ontology_Language) ontology version of the Decision Modeling Ontology (DMO) by [Konyshova &amp; Deneckère (2012)](http://doi.org/10.3233/978-1-61499-105-2-1553). The ontology as originally published was a stand-alone ontology - it referenced or use no other models - nor was a machine-redable version of the ontology given. This version of the ontology is both integrated into the [W3C](https://www.w3.org/)'s set of OWL ontologies and is presented in human- and machine-readable forms. As per the original ontology, this ontology, this ontology deals with the abstract concept of a Decisoon Modeling (DM) *situation* that is described with a set of DM *elements* and describes a particular DM situation by creating a DM *object* with instances of those elements. A DM situation must contain a *DM problem* and a *set of alternatives*. A problem must be characterised by a problem type which can be choice, ranking, classification, or description. A DM situation *may* contain a *set of criteria* but this is not mandatory.</span>
+        <div id="toc">
+            <h2>Table of Content</h2>
+            <ol>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#objectproperties">Object Properties</a></li>
+                <li><a href="#dataproperties">Data Properties</a></li>
+                <li><a href="#namespacedeclarations">Namespace Declarations</a></li>
+            </ol>
+        </div>
+        <div id="classes">
+            <h2>Classes</h2>
+            <ul class="hlist">
+                <li><a href="#Alternative" title="http://promsns.org/def/dmo#Alternative">Alternative</a></li>
+                <li><a href="#AlternativeSet" title="http://promsns.org/def/dmo#AlternativeSet">Alternative Set</a></li>
+                <li><a href="#AlternativeValue" title="http://promsns.org/def/dmo#AlternativeValue">Alternative Value</a></li>
+                <li><a href="#Consequence" title="http://promsns.org/def/dmo#Consequence">Consequence</a></li>
+                <li><a href="#CriteriaSet" title="http://promsns.org/def/dmo#CriteriaSet">Criteria Set</a></li>
+                <li><a href="#Criterion" title="http://promsns.org/def/dmo#Criterion">Criterion</a></li>
+                <li><a href="#Decision" title="http://promsns.org/def/dmo#Decision">Decision</a></li>
+                <li><a href="#DMObject" title="http://promsns.org/def/dmo#DMObject">DM Object</a></li>
+                <li><a href="#DMSituation" title="http://promsns.org/def/dmo#DMSituation">DM Situation</a></li>
+                <li><a href="#Goal" title="http://promsns.org/def/dmo#Goal">Goal</a></li>
+                <li><a href="#IntuitiveDecision" title="http://promsns.org/def/dmo#IntuitiveDecision">Intuitive Decision</a></li>
+                <li><a href="#MethodBasedDecison" title="http://promsns.org/def/dmo#MethodBasedDecison">Method-Based Decison</a></li>
+                <li><a href="#Preference" title="http://promsns.org/def/dmo#Preference">Preference</a></li>
+                <li><a href="#PreferenceRule" title="http://promsns.org/def/dmo#PreferenceRule">Preference Rule</a></li>
+                <li><a href="#Problem" title="http://promsns.org/def/dmo#Problem">Problem</a></li>
+                <li><a href="#Stakeholder" title="http://promsns.org/def/dmo#Stakeholder">Stakeholder</a></li>
+                <li><a href="#State" title="http://promsns.org/def/dmo#State">State</a></li>
+                <li><a href="#Threshold" title="http://promsns.org/def/dmo#Threshold">Threshold</a></li>
+                <li><a href="#Weight" title="http://promsns.org/def/dmo#Weight">Weight</a></li>
+            </ul>
+            <div id="Alternative" class="entity">
+                <a name="http://promsns.org/def/dmo#Alternative"></a>
+                <h3>Alternative<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#Alternative</p>
+            </div>
+            <div id="AlternativeSet" class="entity">
+                <a name="http://promsns.org/def/dmo#AlternativeSet"></a>
+                <h3>Alternative Set<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#AlternativeSet</p>
+            </div>
+            <div id="AlternativeValue" class="entity">
+                <a name="http://promsns.org/def/dmo#AlternativeValue"></a>
+                <h3>Alternative Value<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#AlternativeValue</p>
+            </div>
+            <div id="Consequence" class="entity">
+                <a name="http://promsns.org/def/dmo#Consequence"></a>
+                <h3>Consequence<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#Consequence</p>
+            </div>
+            <div id="CriteriaSet" class="entity">
+                <a name="http://promsns.org/def/dmo#CriteriaSet"></a>
+                <h3>Criteria Set<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#CriteriaSet</p>
+            </div>
+            <div id="Criterion" class="entity">
+                <a name="http://promsns.org/def/dmo#Criterion"></a>
+                <h3>Criterion<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#Criterion</p>
+            </div>
+            <div id="Decision" class="entity">
+                <a name="http://promsns.org/def/dmo#Decision"></a>
+                <h3>Decision<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#Decision</p>
+                <dl class="description">
+                    <dt>
+                        has sub-classes
+                    </dt>
+                    <dd>
+                        <a href="#IntuitiveDecision" title="http://promsns.org/def/dmo#IntuitiveDecision">Intuitive Decision</a>
+                        <sup title="class" class="type-c">c</sup>,
+                        <a href="#MethodBasedDecison" title="http://promsns.org/def/dmo#MethodBasedDecison">Method-Based Decison</a>
+                        <sup title="class" class="type-c">c</sup>
+                    </dd>
+                </dl>
+            </div>
+            <div id="DMObject" class="entity">
+                <a name="http://promsns.org/def/dmo#DMObject"></a>
+                <h3>DM Object<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#DMObject</p>
+            </div>
+            <div id="DMSituation" class="entity">
+                <a name="http://promsns.org/def/dmo#DMSituation"></a>
+                <h3>DM Situation<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#DMSituation</p>
+            </div>
+            <div id="Goal" class="entity">
+                <a name="http://promsns.org/def/dmo#Goal"></a>
+                <h3>Goal<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#Goal</p>
+            </div>
+            <div id="IntuitiveDecision" class="entity">
+                <a name="http://promsns.org/def/dmo#IntuitiveDecision"></a>
+                <h3>Intuitive Decision<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#IntuitiveDecision</p>
+                <dl class="description">
+                    <dt>
+                        has super-classes
+                    </dt>
+                    <dd>
+                        <a href="#Decision" title="http://promsns.org/def/dmo#Decision">Decision</a>
+                        <sup title="class" class="type-c">c</sup>
+                    </dd>
+                </dl>
+            </div>
+            <div id="MethodBasedDecison" class="entity">
+                <a name="http://promsns.org/def/dmo#MethodBasedDecison"></a>
+                <h3>Method-Based Decison<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#MethodBasedDecison</p>
+                <dl class="description">
+                    <dt>
+                        has super-classes
+                    </dt>
+                    <dd>
+                        <a href="#Decision" title="http://promsns.org/def/dmo#Decision">Decision</a>
+                        <sup title="class" class="type-c">c</sup>
+                    </dd>
+                </dl>
+            </div>
+            <div id="Preference" class="entity">
+                <a name="http://promsns.org/def/dmo#Preference"></a>
+                <h3>Preference<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#Preference</p>
+            </div>
+            <div id="PreferenceRule" class="entity">
+                <a name="http://promsns.org/def/dmo#PreferenceRule"></a>
+                <h3>Preference Rule<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#PreferenceRule</p>
+            </div>
+            <div id="Problem" class="entity">
+                <a name="http://promsns.org/def/dmo#Problem"></a>
+                <h3>Problem<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#Problem</p>
+            </div>
+            <div id="Stakeholder" class="entity">
+                <a name="http://promsns.org/def/dmo#Stakeholder"></a>
+                <h3>Stakeholder<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#Stakeholder</p>
+                <dl class="description">
+                    <dt>
+                        has super-classes
+                    </dt>
+                    <dd>
+                        <span class="dotted" title="http://promsns.org/def/dmo#DecisionMaker">Decision-Maker</span>
+                        <sup title="class" class="type-c">c</sup>
+                    </dd>
+                </dl>
+            </div>
+            <div id="State" class="entity">
+                <a name="http://promsns.org/def/dmo#State"></a>
+                <h3>State<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#State</p>
+            </div>
+            <div id="Threshold" class="entity">
+                <a name="http://promsns.org/def/dmo#Threshold"></a>
+                <h3>Threshold<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#Threshold</p>
+            </div>
+            <div id="Weight" class="entity">
+                <a name="http://promsns.org/def/dmo#Weight"></a>
+                <h3>Weight<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#Weight</p>
+            </div>
+        </div>
+        <div id="objectproperties">
+            <h2>Object Properties</h2>
+            <ul class="hlist">
+                <li><a href="#determines" title="http://promsns.org/def/dmo#determines"><span>determines</span></a></li>
+                <li><a href="#is_associated_to" title="http://promsns.org/def/dmo#is_associated_to"><span>is associated to</span></a></li>
+                <li><a href="#leads_to" title="http://promsns.org/def/dmo#leads_to"><span>leads to</span></a></li>
+            </ul>
+            <div id="determines" class="entity">
+                <a name="http://promsns.org/def/dmo#determines"></a>
+                <h3>determines<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#determines</p>
+                <div class="description">
+                    <dl>
+                        <dt>
+                            has super-properties
+                        </dt>
+                        <dd>
+                            <span class="dotted" title="http://www.w3.org/2002/07/owl#topObjectProperty">top object property</span>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="is_associated_to" class="entity">
+                <a name="http://promsns.org/def/dmo#is_associated_to"></a>
+                <h3>is associated to<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#is_associated_to</p>
+                <div class="description">
+                    <dl>
+                        <dt>
+                            has super-properties
+                        </dt>
+                        <dd>
+                            <span class="dotted" title="http://www.w3.org/2002/07/owl#topObjectProperty">top object property</span>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="leads_to" class="entity">
+                <a name="http://promsns.org/def/dmo#leads_to"></a>
+                <h3>leads to<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#leads_to</p>
+                <div class="description">
+                    <dl>
+                        <dt>
+                            has super-properties
+                        </dt>
+                        <dd>
+                            <span class="dotted" title="http://www.w3.org/2002/07/owl#topObjectProperty">top object property</span>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div id="dataproperties">
+            <h2>Data Properties</h2>
+            <ul class="hlist">
+                <li><a href="#is_valid" title="http://promsns.org/def/dmo#is_valid"><span>is valid</span></a></li>
+            </ul>
+            <div id="is_valid" class="entity">
+                <a name="http://promsns.org/def/dmo#is_valid"></a>
+                <h3>is valid<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
+                <p><strong>IRI:</strong> http://promsns.org/def/dmo#is_valid</p>
+                <div class="description">
+                    <dl>
+                        <dt>
+                            has range
+                        </dt>
+                        <dd>
+                            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</span>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div id="namespacedeclarations">
+            <h2>Namespace Declarations <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+            <dl>
+                <dt>
+                    <em>default namespace</em>
+                </dt>
+                <dd>
+                    http://promsns.org/def/dmo#
+                </dd>
+                <dt>
+                    owl
+                </dt>
+                <dd>
+                    http://www.w3.org/2002/07/owl#
+                </dd>
+                <dt>
+                    rdf
+                </dt>
+                <dd>
+                    http://www.w3.org/1999/02/22-rdf-syntax-ns#
+                </dd>
+                <dt>
+                    rdfs
+                </dt>
+                <dd>
+                    http://www.w3.org/2000/01/rdf-schema#
+                </dd>
+                <dt>
+                    terms
+                </dt>
+                <dd>
+                    http://purl.org/dc/terms/
+                </dd>
+                <dt>
+                    xsd
+                </dt>
+                <dd>
+                    http://www.w3.org/2001/XMLSchema#
+                </dd>
+            </dl>
+        </div>
+        <p class="endnote">This HTML document was obtained by processing the OWL ontology source code through <a href="http://lode2.promsns.org">LODE 2</a>, <em>Live OWL Documentation Environment, v2</em>, originally developed by <a href="http://www.essepuntato.it">Silvio Peroni</a> and updated by <a href="http://www.edmondchuc.com">Edmond Chuc</a> at the <a href="http://www.csiro.au">CSIRO</a>.</p>
+    </body>
+</html>

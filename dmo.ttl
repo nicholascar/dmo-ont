@@ -1,0 +1,237 @@
+@prefix : <http://promsns.org/def/dmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://promsns.org/def/dmo> .
+
+<http://promsns.org/def/dmo> rdf:type owl:Ontology ;
+                              owl:versionIRI <http://promsns.org/def/dmo> ;
+                              dcterms:creator "Nicholas Car"^^xsd:string ;
+                              rdfs:comment """DRAFT
+
+An [OWL](https://en.wikipedia.org/wiki/Web_Ontology_Language) ontology version of the Decision Modeling Ontology (DMO) by [Konyshova & Deneckère (2012)](http://doi.org/10.3233/978-1-61499-105-2-1553).
+
+The ontology as originally published was a stand-alone ontology - it referenced or use no other models - nor was a machine-redable version of the ontology given. This version of the ontology is both integrated into the [W3C](https://www.w3.org/)'s set of OWL ontologies and is presented in human- and machine-readable forms.
+
+As per the original ontology, this ontology, this ontology deals with the abstract concept of a Decisoon Modeling (DM) *situation* that is described with a set of DM *elements* and describes a particular DM situation by creating a DM *object* with instances of those elements.
+
+A DM situation must contain a *DM problem* and a *set of alternatives*. A problem must be characterised by a problem type which can be choice, ranking, classification, or description.
+
+A DM situation *may* contain a *set of criteria* but this is not mandatory."""@en ;
+                              owl:priorVersion "1.0"^^xsd:string ;
+                              owl:versionInfo "1.1"^^xsd:string ;
+                              dcterms:modified "2018-05-10"@en ;
+                              dcterms:created "2017-09-05"^^xsd:date ;
+                              dcterms:creator <http://orcid.org/0000-0002-8742-7730> ;
+                              rdfs:label "Decision Modeling Ontology"^^xsd:string ;
+                              rdfs:seeAlso "The GitHub repository containing addition documentation: http://github.com/nicholascar/dmo-ont/"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://promsns.org/def/dmo#aggregates
+:aggregates rdf:type owl:ObjectProperty .
+
+
+###  http://promsns.org/def/dmo#characterizes
+:characterizes rdf:type owl:ObjectProperty .
+
+
+###  http://promsns.org/def/dmo#concerns
+:concerns rdf:type owl:ObjectProperty .
+
+
+###  http://promsns.org/def/dmo#contains
+:contains rdf:type owl:ObjectProperty .
+
+
+###  http://promsns.org/def/dmo#defines
+:defines rdf:type owl:ObjectProperty .
+
+
+###  http://promsns.org/def/dmo#determines
+:determines rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://promsns.org/def/dmo#evaluates
+:evaluates rdf:type owl:ObjectProperty .
+
+
+###  http://promsns.org/def/dmo#has
+:has rdf:type owl:ObjectProperty .
+
+
+###  http://promsns.org/def/dmo#is
+:is rdf:type owl:ObjectProperty .
+
+
+###  http://promsns.org/def/dmo#is_associated_to
+:is_associated_to rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://promsns.org/def/dmo#is_based_on
+:is_based_on rdf:type owl:ObjectProperty .
+
+
+###  http://promsns.org/def/dmo#is_composed_of
+:is_composed_of rdf:type owl:ObjectProperty .
+
+
+###  http://promsns.org/def/dmo#is_defined_for
+:is_defined_for rdf:type owl:ObjectProperty .
+
+
+###  http://promsns.org/def/dmo#leads_to
+:leads_to rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://promsns.org/def/dmo#makes
+:makes rdf:type owl:ObjectProperty .
+
+
+###  http://promsns.org/def/dmo#responds_to
+:responds_to rdf:type owl:ObjectProperty .
+
+
+###  http://promsns.org/def/dmo#validates
+:validates rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://promsns.org/def/dmo#is_valid
+:is_valid rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://promsns.org/def/dmo#Alternative
+:Alternative rdf:type owl:Class ;
+             rdfs:label "Alternative"@en .
+
+
+###  http://promsns.org/def/dmo#AlternativeSet
+:AlternativeSet rdf:type owl:Class ;
+                rdfs:label "Alternative Set"@en .
+
+
+###  http://promsns.org/def/dmo#AlternativeValue
+:AlternativeValue rdf:type owl:Class ;
+                  rdfs:label "Alternative Value"@en .
+
+
+###  http://promsns.org/def/dmo#Consequence
+:Consequence rdf:type owl:Class ;
+             rdfs:label "Consequence"@en .
+
+
+###  http://promsns.org/def/dmo#CriteriaSet
+:CriteriaSet rdf:type owl:Class ;
+             rdfs:label "Criteria Set"@en .
+
+
+###  http://promsns.org/def/dmo#Criterion
+:Criterion rdf:type owl:Class ;
+           rdfs:label "Criterion"@en .
+
+
+###  http://promsns.org/def/dmo#DMObject
+:DMObject rdf:type owl:Class ;
+          rdfs:label "DM Object"@en .
+
+
+###  http://promsns.org/def/dmo#DMSituation
+:DMSituation rdf:type owl:Class ;
+             rdfs:label "DM Situation"@en .
+
+
+###  http://promsns.org/def/dmo#Decision
+:Decision rdf:type owl:Class ;
+          rdfs:label "Decision"@en .
+
+
+###  http://promsns.org/def/dmo#DecisionMaker
+:DecisionMaker rdf:type owl:Class .
+
+
+###  http://promsns.org/def/dmo#Goal
+:Goal rdf:type owl:Class ;
+      rdfs:label "Goal"@en .
+
+
+###  http://promsns.org/def/dmo#IntuitiveDecision
+:IntuitiveDecision rdf:type owl:Class ;
+                   rdfs:subClassOf :Decision ;
+                   rdfs:label "Intuitive Decision"@en .
+
+
+###  http://promsns.org/def/dmo#MethodBasedDecison
+:MethodBasedDecison rdf:type owl:Class ;
+                    rdfs:subClassOf :Decision ;
+                    rdfs:label "Method-Based Decison"@en .
+
+
+###  http://promsns.org/def/dmo#Preference
+:Preference rdf:type owl:Class ;
+            rdfs:label "Preference"@en .
+
+
+###  http://promsns.org/def/dmo#PreferenceRule
+:PreferenceRule rdf:type owl:Class ;
+                rdfs:label "Preference Rule"@en .
+
+
+###  http://promsns.org/def/dmo#Problem
+:Problem rdf:type owl:Class ;
+         rdfs:label "Problem"@en .
+
+
+###  http://promsns.org/def/dmo#Stakeholder
+:Stakeholder rdf:type owl:Class ;
+             rdfs:subClassOf :DecisionMaker ;
+             rdfs:label "Stakeholder"@en .
+
+
+###  http://promsns.org/def/dmo#State
+:State rdf:type owl:Class ;
+       rdfs:label "State"@en .
+
+
+###  http://promsns.org/def/dmo#Threshold
+:Threshold rdf:type owl:Class ;
+           rdfs:label "Threshold"@en .
+
+
+###  http://promsns.org/def/dmo#Weight
+:Weight rdf:type owl:Class ;
+        rdfs:label "Weight"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://promsns.org/def/dmo#DecisionMaker
+:DecisionMaker rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:DecisionMaker rdfs:label "Decision-Maker"@en .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
